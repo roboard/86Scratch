@@ -2,7 +2,7 @@
 open-source-v1.0
 
 ---------
-#### [86Scratch]() ####
+#### [86Scratch](https://github.com/roboard/86Scratch) ####
 86Scratch is a cross-platform application program that can connect your Scratch 2.0 creations to an 86Duino without need to write any additional code. 
 It is designed to be very easy to use and to be customized, so that the user can change every UI element and text without modifying any line of the source code; 
 moreover, adding/deleting new Scratch hardware extensions and demos can directly be done in 86Scratch's menu. 
