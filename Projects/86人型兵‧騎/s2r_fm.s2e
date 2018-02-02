@@ -1,0 +1,54 @@
+{
+	"extensionName": "s2r_fm - Scratch to Robot",
+	"extensionPort": 50209,
+	"url": "http://www.86duino.com",
+	"blockSpecs": [[" ", "%m.pin_state 數位腳位 %m.digital_pins 為 %m.digital_pin_mode", "digital_pin_mode", "啟用", "3", "輸入"],
+				[" ", "%m.pin_state 類比腳位(A) %m.adcpin_number 為輸入", "analog_pin_mode", "啟用", "0"],
+				[" ", "數位輸出: 設定腳位 %m.digital_pins 為 %m.high_low", "digital_write", "3", 0],
+				["r", "讀取數位腳位 %m.digital_pins 的值", "digital_read", "3"],
+			    ["w", "左轉 %n 次", "perform_TurnLeft", "1"],
+			    ["w", "右轉 %n 次", "perform_TurnRight", "1"],
+			    ["w", "前進 %n 次", "perform_WalkBwd", "1"],
+			    ["w", "後退 %n 次", "perform_WalkFwd", "1"],
+			    ["w", "左移 %n 次", "perform_WalkLeft", "1"],
+			    ["w", "右移 %n 次", "perform_WalkRight", "1"],
+			    ["w", "打招呼 %n 次", "perform_helloworld", "1"],
+			    ["w", "鞠躬 %n 次", "perform_bow", "1"],
+			    ["w", "手部運動 %n 次", "perform_grab", "1"],
+			    ["w", "做初始動作一次", "perform_home"]
+        ],
+        "menus": {
+								   
+					"digital_pin_mode": ["Input", "Output"],
+					"high_low": ["0", "1"],
+					"pin_state": ["Enable", "Disable"],
+                    "adcpin_number": ["0", "1", "2", "3", "4", "5", "6"],
+					"digital_pins": ["3",
+				
+				
+						"8",
+						"13",
+						"16",
+						"21",
+						"26",
+						"27",
+						"28",
+						"29",
+						"30",
+						"31",
+						"32",
+						"33",
+						"34",
+						"35",
+						"36",
+						"37",
+						"38",
+						"39",
+						"40",
+						"41",
+						"42",
+						"43",
+						"44"]
+		   
+				}
+}
