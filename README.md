@@ -27,4 +27,4 @@ Scratch is a free programming language and online community where you can create
 
 #### CREDITS ####
 
-The main author of 86Scratch is [Sayter](mailto:sayter@dmp.com.tw) with kind help from [Android Lin](mailto:acen@dmp.com.tw), [Vic Chen](mailto:vic@dmp.com.tw) and [RoBoardGod](mailto:roboardgod@dmp.com.tw). All of them are members in TeslaLab of DMP Electronic Inc.
+The main author of 86Scratch is [Sayter](mailto:sayter@dmp.com.tw), with kind help from [Android Lin](mailto:acen@dmp.com.tw), [Vic Chen](mailto:vic@dmp.com.tw) and [RoBoardGod](mailto:roboardgod@dmp.com.tw). All of them are members in TeslaLab of DMP Electronic Inc.
