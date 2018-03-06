@@ -1,0 +1,1 @@
+This extended S4A is fully compatible to the original S4A and runs on Scratch 2.0. It contains extra blocks to support extra I/O functions of 86Duino, thus allowing you control and connect your Scratch creations to an 86Duino ZERO, ONE, or EduCake without writing one line of additional code.

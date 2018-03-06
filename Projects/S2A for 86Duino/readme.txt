@@ -1,0 +1,1 @@
+This extended S2A is fully compatible to the original S2A, and contains extra blocks to support extra I/O functions of 86Duino. It allows you configure, control, and connect your Scratch creations to an 86Duino ZERO, ONE, or EduCake without writing one line of additional code.

@@ -1,0 +1,146 @@
+{
+	"objName": "Stage",
+	"sounds": [{
+			"soundName": "pop",
+			"soundID": 0,
+			"md5": "83a9787d4cb6f3b7632b4ddfebf74367.wav",
+			"sampleCount": 258,
+			"rate": 11025,
+			"format": ""
+		}],
+	"costumes": [{
+			"costumeName": "86scratch_background",
+			"baseLayerID": 3,
+			"baseLayerMD5": "a8311e13b06e88aeb30d9bca77968fd5.png",
+			"bitmapResolution": 2,
+			"rotationCenterX": 480,
+			"rotationCenterY": 360
+		}],
+	"currentCostumeIndex": 0,
+	"penLayerMD5": "5c81a336fab8be57adc039a8a2b33ca9.png",
+	"penLayerID": 0,
+	"tempoBPM": 60,
+	"videoAlpha": 0.5,
+	"children": [{
+			"objName": "86Hexapod",
+			"sounds": [{
+					"soundName": "pop",
+					"soundID": 0,
+					"md5": "83a9787d4cb6f3b7632b4ddfebf74367.wav",
+					"sampleCount": 258,
+					"rate": 11025,
+					"format": ""
+				}],
+			"costumes": [{
+					"costumeName": "86Hexapod",
+					"baseLayerID": 1,
+					"baseLayerMD5": "1a640bff0a551456a97c5d58c7f0d884.png",
+					"bitmapResolution": 1,
+					"rotationCenterX": 200,
+					"rotationCenterY": 150
+				}],
+			"currentCostumeIndex": 0,
+			"scratchX": 38,
+			"scratchY": -57,
+			"scale": 1,
+			"direction": 90,
+			"rotationStyle": "normal",
+			"isDraggable": false,
+			"indexInLibrary": 2,
+			"visible": true,
+			"spriteInfo": {
+			}
+		},
+		{
+			"objName": "86Scratch",
+			"sounds": [{
+					"soundName": "pop",
+					"soundID": 0,
+					"md5": "83a9787d4cb6f3b7632b4ddfebf74367.wav",
+					"sampleCount": 258,
+					"rate": 11025,
+					"format": ""
+				}],
+			"costumes": [{
+					"costumeName": "86Scratch",
+					"baseLayerID": 2,
+					"baseLayerMD5": "b50af58a51080c8ea714c3a566fdf88e.png",
+					"bitmapResolution": 2,
+					"rotationCenterX": 196,
+					"rotationCenterY": 172
+				}],
+			"currentCostumeIndex": 0,
+			"scratchX": 19,
+			"scratchY": 51,
+			"scale": 0.65,
+			"direction": 90,
+			"rotationStyle": "normal",
+			"isDraggable": false,
+			"indexInLibrary": 1,
+			"visible": true,
+			"spriteInfo": {
+			}
+		}],
+	"info": {
+		"savedExtensions": [{
+				"extensionName": "86Hexapod",
+				"menus": {
+					"digital_pin_mode": ["Output", "Input"],
+					"high_low": ["0", "1"],
+					"pin_state": ["Enable", "Disable"],
+                    "adcpin_number": ["0", "1", "2", "3", "4", "5", "6"],
+					"pin_number": [
+						"2",
+						"3",
+						"4",
+						"5",
+						"6",
+						"7",
+						"8",
+						"9",
+						"10",
+						"11",
+						"12",
+						"13",
+						"14",
+						"15",
+						"16",
+						"17",
+						"18",
+						"19",
+						"20",
+						"21",
+						"22",
+						"23",
+						"24",
+						"29",
+						"34",
+						"39",
+						"40",
+						"41",
+						"42",
+						"43",
+						"44"]
+				},
+				"url": "http:\/\/www.86duino.com",
+				"blockSpecs": [[" ", "%m.pin_state Digital Pin %m.pin_number for %m.digital_pin_mode", "digital_pin_mode", "Enable", "2", "Input"],
+				    [" ", "%m.pin_state Analog Pin (A) %m.adcpin_number for Input", "analog_pin_mode", "Enable", "0"],
+				    [" ", "DigitalWrite Set Pin %m.pin_number to %m.high_low", "digital_write", "2", 0],
+					["r", "Read Digital Pin %m.pin_number", "digital_read", "2"],
+				    ["r", "Read Analog Pin (A) %m.adcpin_number", "analog_read", "0"],
+					["w", "Go Forward %n times", "perform_forward", "1"],
+					["w", "Turn Left %n times", "perform_left", "1"],
+					["w", "Turn Right %n times", "perform_right", "1"],
+					["w", "Hello %n times", "perform_hello", "1"],
+					["w", "Home Position", "perform_home"],
+					["w", "Idle %n times", "perform_idle", "1"]],
+				"extensionPort": 50209
+			}],
+		"userAgent": "Scratch 2.0 Offline Editor",
+		"flashVersion": "WIN 27,0,0,129",
+		"videoOn": false,
+		"scriptCount": 0,
+		"spriteCount": 2,
+		"swfVersion": "v458.0.1"
+	}
+}

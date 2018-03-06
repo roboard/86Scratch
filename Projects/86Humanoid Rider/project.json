@@ -1,0 +1,146 @@
+{
+	"objName": "Stage",
+	"sounds": [{
+			"soundName": "pop",
+			"soundID": 0,
+			"md5": "83a9787d4cb6f3b7632b4ddfebf74367.wav",
+			"sampleCount": 258,
+			"rate": 11025,
+			"format": ""
+		}],
+	"costumes": [{
+			"costumeName": "86scratch_background",
+			"baseLayerID": 3,
+			"baseLayerMD5": "a8311e13b06e88aeb30d9bca77968fd5.png",
+			"bitmapResolution": 2,
+			"rotationCenterX": 480,
+			"rotationCenterY": 360
+		}],
+	"currentCostumeIndex": 0,
+	"penLayerMD5": "5c81a336fab8be57adc039a8a2b33ca9.png",
+	"penLayerID": 0,
+	"tempoBPM": 60,
+	"videoAlpha": 0.5,
+	"children": [{
+			"objName": "86Humanoid",
+			"sounds": [{
+					"soundName": "pop",
+					"soundID": 0,
+					"md5": "83a9787d4cb6f3b7632b4ddfebf74367.wav",
+					"sampleCount": 258,
+					"rate": 11025,
+					"format": ""
+				}],
+			"costumes": [{
+					"costumeName": "86Humanoid",
+					"baseLayerID": 1,
+					"baseLayerMD5": "b09f05c55e4f4849ad26cc1290398538.png",
+					"bitmapResolution": 2,
+					"rotationCenterX": 202,
+					"rotationCenterY": 334
+				}],
+			"currentCostumeIndex": 0,
+			"scratchX": -120,
+			"scratchY": -27,
+			"scale": 0.9,
+			"direction": 90,
+			"rotationStyle": "normal",
+			"isDraggable": false,
+			"indexInLibrary": 2,
+			"visible": true,
+			"spriteInfo": {
+			}
+		},
+		{
+			"objName": "86Scratch",
+			"sounds": [{
+					"soundName": "pop",
+					"soundID": 0,
+					"md5": "83a9787d4cb6f3b7632b4ddfebf74367.wav",
+					"sampleCount": 258,
+					"rate": 11025,
+					"format": ""
+				}],
+			"costumes": [{
+					"costumeName": "86Scratch",
+					"baseLayerID": 2,
+					"baseLayerMD5": "1fdaac8cc6e2dea741b57a23e0330dac.png",
+					"bitmapResolution": 2,
+					"rotationCenterX": 164,
+					"rotationCenterY": 172
+				}],
+			"currentCostumeIndex": 0,
+			"scratchX": 11,
+			"scratchY": 96,
+			"scale": 0.6,
+			"direction": 90,
+			"rotationStyle": "normal",
+			"isDraggable": false,
+			"indexInLibrary": 1,
+			"visible": true,
+			"spriteInfo": {
+			}
+		}],
+	"info": {
+		"scriptCount": 0,
+		"spriteCount": 2,
+		"flashVersion": "WIN 27,0,0,129",
+		"savedExtensions": [{
+			"blockSpecs": [[" ", "%m.pin_state Digital Pin %m.pin_number for %m.digital_pin_mode", "digital_pin_mode", "Enable", "3", "Input"],
+				    [" ", "%m.pin_state Analog Pin (A) %m.adcpin_number for Input", "analog_pin_mode", "Enable", "0"],
+				    [" ", "DigitalWrite Set Pin %m.pin_number to %m.high_low", "digital_write", "3", 0],
+					["r", "Read Digital Pin %m.pin_number", "digital_read", "3"],
+                    ["w", "Turn Left %n times", "perform_TurnLeft", "1"],
+                    ["w", "Turn Right %n times", "perform_TurnRight", "1"],
+                    ["w", "Go Forward %n times", "perform_WalkBwd", "1"],
+                    ["w", "Go Back %n times", "perform_WalkFwd", "1"],
+                    ["w", "Shift Left %n times", "perform_WalkLeft", "1"],
+                    ["w", "Shift Right %n times", "perform_WalkRight", "1"],
+                    ["w", "Hello %n times", "perform_helloworld", "1"],
+                    ["w", "Bow %n times", "perform_bow", "1"],
+                    ["w", "Grab %n times", "perform_grab", "1"],
+                    ["w", "Home Position", "perform_home"]
+        ],
+        "menus": {
+					"digital_pin_mode": ["Input", "Output"],
+					"high_low": ["0", "1"],
+					"pin_state": ["Enable", "Disable"],
+                    "adcpin_number": ["0", "1", "2", "3", "4", "5", "6"],
+					"digital_pins": ["3",
+						"8",
+						"13",
+						"16",
+						"21",
+						"26",
+						"27",
+						"28",
+						"29",
+						"30",
+						"31",
+						"32",
+						"33",
+						"34",
+						"35",
+						"36",
+						"37",
+						"38",
+						"39",
+						"40",
+						"41",
+						"42",
+						"43",
+						"44"]
+		   
+				},
+				"url": "http:\/\/www.86duino.com",
+				"extensionName": "86Humanoid Rider",
+				"extensionPort": 50209
+			}],
+		"videoOn": false,
+					 
+					 
+		"userAgent": "Scratch 2.0 Offline Editor",
+									 
+		"swfVersion": "v458.0.1"
+	}
+}
