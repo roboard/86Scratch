@@ -1,4 +1,4 @@
-/*
+/* 
   mainwindow.cpp - DM&P 86Scratch
   Copyright (c) 2018 Vic Chen <vic@dmp.com.tw>. All right reserved.
   Copyright (c) 2018 RoBoardGod <roboardgod@dmp.com.tw>. All right reserved.
@@ -55,6 +55,7 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     // 3. Set Layout
+    this->setWindowTitle("open-source-v1.1");
     this->setFixedSize(cagInt("WindowWidth"), cagInt("WindowHeight"));
     this->setWindowIcon(QIcon(cag("WindowIconPath")));
     setFont(cag("SystemFont"));

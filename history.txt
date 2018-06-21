@@ -2,3 +2,17 @@
 
 * Update the implementation of perform_motion function for python helper.
   Modify 2 file : pymata.py and pymata_command_handler.py
+
+
+
+### v1.0 - 2018.06.21 ###
+
+
+* Support Scratch 2.0.
+
+* Build-In the 4 teaching plans : S2A, S4A, 86Hexapod, 86Humanoid Rider
+  And allow to remove or add the customized teaching plan.
+
+* Support the USB Serial, Bluetooth, Ethernet, ESP8266 WiFi client & AP for 5 linking methods.
+
+* Support Windows 7/8/10, Linux, Mac OS X.
