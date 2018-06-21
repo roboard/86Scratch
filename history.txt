@@ -1,0 +1,4 @@
+### v1.1 - 2018.06.21 ###
+
+* Update the implementation of perform_motion function for python helper.
+  Modify 2 file : pymata.py and pymata_command_handler.py

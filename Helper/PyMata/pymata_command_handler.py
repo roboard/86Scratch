@@ -120,7 +120,7 @@ class PyMataCommandHandler(threading.Thread):
 
     s4a_response_table = []
     
-    perform_motion_response_table = {}
+    perform_motion_response_table = []
     
     # The analog and digital latch tables  will store "latched" data for input pins.
     # If a pin is armed, the latest value will be stored and maintained until
@@ -896,9 +896,8 @@ class PyMataCommandHandler(threading.Thread):
 
     def perform_motion_response(self, data):
         id = int((data[1] << 7) + data[0])
-        val = int(data[2])
         with self.pymata.data_lock:
-            self.perform_motion_response_table[id] = val
+            self.perform_motion_response_table.append(id)
 
     def check_active_response(self, data):
         val = int(data[0])

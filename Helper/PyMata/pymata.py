@@ -75,6 +75,7 @@ class PyMata:
     # verbose can be set to false to suppress output to the console when instantiating PyMata
     verbose = True
 
+    perform_motion_buff = []
     # pin modes
     INPUT = 0x00  # pin set as input
     OUTPUT = 0x01  # pin set as output
@@ -1103,7 +1104,11 @@ class PyMata:
 
     def perform_motion(self, id, motion, times):
         data = [id & 0x7F, id >> 7, motion & 0x7F, motion >> 7, times & 0x7f, times >> 7]
-        self._command_handler.send_sysex(self._command_handler.PERFORM_MOTION, data)
+        if self.operation_mode == 0:
+            with self.data_lock:
+                self.perform_motion_buff.append(data)
+        else:
+            self._command_handler.send_sysex(self._command_handler.PERFORM_MOTION, data)
         
     def send_error_message(self):
         self._ui_command_handler.send_error_message()
@@ -1121,9 +1126,14 @@ class PyMata:
             # operation_mode = 0 : USB Serial, Bluetooth mode, Enternet (high speed transmission)
             # operation_mode = other : WiFi shield, ESP8266 (low speed transmission)
             if self.operation_mode == 0:
-            
+                buffsize = len(self.perform_motion_buff)
+                if buffsize > 0:
+                    for i in range(buffsize):
+                        self._command_handler.send_sysex(self._command_handler.PERFORM_MOTION, self.perform_motion_buff[i])
+                    # print self.perform_motion_buff[i]
+                    del self.perform_motion_buff[:buffsize]
                 self._command_handler.send_sysex(self._command_handler.CHECK_86DUINO_ACTIVE)
-                time.sleep(1)
+                time.sleep(0.3)
                 # print no_response_time
                 if self._command_handler._86Duino_active == 0:
                     no_response_time += 1
