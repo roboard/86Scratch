@@ -68,6 +68,8 @@ class PyMataCommandHandler(threading.Thread):
 
     ENCODER_DATA = 0x63  # current encoder position data
     SONAR_DATA = 0x61  # distance data returned
+    
+    PLAY_MUSIC = 0x64 # play music on 86Duino SD card (.wav from 86ME)
 
     SERVO_CONFIG = 0x70  # set servo pin and max and min angles
     STRING_DATA = 0x71  # a string message with 14-bits per char

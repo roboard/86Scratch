@@ -1,3 +1,9 @@
+### v1.2 - 2018.10.14 ###
+
+* Update the PyMata Lib to support new command: PLAY_MUSIC.
+
+
+
 ### v1.1 - 2018.06.21 ###
 
 * Update the implementation of perform_motion() for python helper.

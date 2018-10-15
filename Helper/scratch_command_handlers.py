@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
@@ -28,6 +29,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 import logging
 import datetime
 import ConfigParser
+import time
 
 class ScratchCommandHandlers:
     """
@@ -74,6 +76,8 @@ class ScratchCommandHandlers:
     # debug state - 0 == off and 1 == on
     debug = 0
     
+    motion_busy_ID = []
+    
     imu_busy = 0
     imu_busy_ID = 0
     imu_active = 0
@@ -90,6 +94,7 @@ class ScratchCommandHandlers:
     imu_response_base = 'read_imu/TYPE VALUE'
     imu_init_response_base = '_busy ID'
     one_servo_response_base = '_busy ID'
+    perform_motion_reporter_base = '_busy ID'
 
     # convenience definition for cr + lf
     end_of_line = "\r\n"
@@ -215,6 +220,8 @@ class ScratchCommandHandlers:
         imu_response_table = self.firmata.get_imu_response_table()
         imu_init_response_table = self.firmata.get_imu_init_response_table()
         one_servo_response_table = self.firmata.get_one_servo_response_table()
+        perform_motion_response_table = self.firmata.get_perform_motion_response_table()
+
         
         # for each pin in the poll list that is set as an INPUT,
         # retrieve the pins value from the response table and build the response
@@ -298,11 +305,43 @@ class ScratchCommandHandlers:
                 self.imu_busy = 0
                 imu_init_response_table[1] = 0
                 self.imu_active = 1
-        
+
+        # for 86Duino Motion Editor
+        if len(self.motion_busy_ID) > 0:
+            ids = ''
+            found = 0
+            remove_id = []
+            time.sleep(0.2)
+            self.motion_busy_ID.sort()
+            busyBuff = len(self.motion_busy_ID)
+            respBuff = len(perform_motion_response_table)
+            for id in range(busyBuff):
+                for rid in range(respBuff):
+                    if int(self.motion_busy_ID[id]) == int(perform_motion_response_table[rid]):
+                        remove_id.append(self.motion_busy_ID[id])
+                        found = 1
+                        break
+                if found == 0:
+                    if ids == '':
+                        ids = str(self.motion_busy_ID[id])
+                    else:
+                        ids += ' ' + str(self.motion_busy_ID[id])
+                else:
+                    found = 0
+            
+            for i in remove_id:
+                self.motion_busy_ID.remove(i)
+                perform_motion_response_table.remove(i)
+            
+            report_entry = self.perform_motion_reporter_base
+            report_entry = report_entry.replace("ID", ids)
+            responses += report_entry
+            responses += self.end_of_line
         if responses == '':
             responses = 'okay'
 
         return responses
+
 
     #noinspection PyUnusedLocal
     def send_cross_domain_policy(self, command):
@@ -327,6 +366,11 @@ class ScratchCommandHandlers:
         @return: 'okay'
         """
         
+        perform_motion_response_table = self.firmata.get_perform_motion_response_table()
+        
+        del perform_motion_response_table[:]
+        del self.motion_busy_ID[:]
+		
         # reset the tables
         for x in range(self.total_pins_discovered):
             self.digital_poll_list[x] = self.firmata.IGNORE
@@ -1057,6 +1101,85 @@ class ScratchCommandHandlers:
         
         return 'okay'
 		
+	
+    def play_music(self, command):
+        """
+        This method is added dor 86Duino Audio library.
+        """
+        aud_cmd = [u'20180925_145441_Normal', u'monster']
+        id = 999
+        for index in range(len(aud_cmd)):
+            if command[1].replace("%", "\\x").decode('string-escape').decode('utf-8') == aud_cmd[index]:
+                id = index
+        self.firmata.play_music(id)
+        
+        return 'okay'
+    def perform_forward(self, command):
+        id = int(command[1])
+        motion = 0
+        times = int(command[2])
+        self.motion_busy_ID.append(id)
+        self.firmata.perform_motion(id, motion, times)
+        return 'okay'
+
+    def perform_backward(self, command):
+        id = int(command[1])
+        motion = 1
+        times = int(command[2])
+        self.motion_busy_ID.append(id)
+        self.firmata.perform_motion(id, motion, times)
+        return 'okay'
+
+    def perform_left(self, command):
+        id = int(command[1])
+        motion = 2
+        times = int(command[2])
+        self.motion_busy_ID.append(id)
+        self.firmata.perform_motion(id, motion, times)
+        return 'okay'
+
+    def perform_right(self, command):
+        id = int(command[1])
+        motion = 3
+        times = int(command[2])
+        self.motion_busy_ID.append(id)
+        self.firmata.perform_motion(id, motion, times)
+        return 'okay'
+
+    def perform_home(self, command):
+        id = int(command[1])
+        motion = 4
+        times = int(command[2])
+        self.motion_busy_ID.append(id)
+        self.firmata.perform_motion(id, motion, times)
+        return 'okay'
+
+    def perform_balance(self, command):
+        id = int(command[1])
+        motion = 5
+        times = int(command[2])
+        self.motion_busy_ID.append(id)
+        self.firmata.perform_motion(id, motion, times)
+        return 'okay'
+
+    def perform_idle(self, command):
+        id = int(command[1])
+        motion = 6
+        times = int(command[2])
+        self.motion_busy_ID.append(id)
+        self.firmata.perform_motion(id, motion, times)
+        return 'okay'
+
+    def perform_hello(self, command):
+        id = int(command[1])
+        motion = 7
+        times = int(command[2])
+        self.motion_busy_ID.append(id)
+        self.firmata.perform_motion(id, motion, times)
+        return 'okay'
+
+
+	
     # This table must be at the bottom of the file because Python does not provide forward referencing for
     # the methods defined above.
     command_dict = {'crossdomain.xml': send_cross_domain_policy, 'reset_all': reset_arduino,
@@ -1068,5 +1191,14 @@ class ScratchCommandHandlers:
                     'set_servo_position': set_servo_position, 'poll': poll,
                     'debugger': debug_control, 'digital_read': digital_read, 'analog_read': analog_read,
                     'config_servo_ex': config_servo_ex, 'move_servo_all': move_servo_all,
-                    'set_encoder_mode': set_encoder_mode, 'init_imu': init_imu, 'move_one_servo_ex': move_one_servo_ex
+                    'set_encoder_mode': set_encoder_mode, 'init_imu': init_imu, 'move_one_servo_ex': move_one_servo_ex,
+                    'play_music': play_music,
+                    'perform_forward': perform_forward,
+                    'perform_backward': perform_backward,
+                    'perform_left': perform_left,
+                    'perform_right': perform_right,
+                    'perform_home': perform_home,
+                    'perform_balance': perform_balance,
+                    'perform_idle': perform_idle,
+                    'perform_hello': perform_hello
                     }

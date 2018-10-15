@@ -1,5 +1,5 @@
 # 86Scratch #
-open-source-v1.1
+open-source-v1.2
 
 ---------
 #### [86Scratch](https://github.com/roboard/86Scratch) ####

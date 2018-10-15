@@ -1109,6 +1109,10 @@ class PyMata:
                 self.perform_motion_buff.append(data)
         else:
             self._command_handler.send_sysex(self._command_handler.PERFORM_MOTION, data)
+
+    def play_music(self, id):
+        data = [id & 0x7F, id >> 7]
+        self._command_handler.send_sysex(self._command_handler.PLAY_MUSIC, data)
         
     def send_error_message(self):
         self._ui_command_handler.send_error_message()

@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 # -*- coding: utf-8 -*-
 
 """
@@ -56,7 +55,7 @@ def s2a_fm():
     # if user specified the com port on the command line, use that when invoking PyMata,
     # else use '/dev/ttyACM0'
     
-    projectName = 'Hello, 86Duino'
+    projectName = '86Hexapodtest'
     com_port = '/dev/ttyACM0'
     ui_server_port = 8386
     

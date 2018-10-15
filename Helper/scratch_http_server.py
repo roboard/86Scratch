@@ -164,7 +164,7 @@ def updateTime(firmata):
                     firmata.send_error_message()
                     scratch_connected_starttime = time.time()
         else:
-            if time.time() - scratch_connected_starttime > 25:
+            if time.time() - scratch_connected_starttime > 60:
                 unstable_linking = 1
                 firmata.set_s2a_fm_status(9)
                 firmata.set_error_no(6)
@@ -194,7 +194,7 @@ def start_server(firmata, command_handler):
     
     GetHandler.set_items(firmata, command_handler)
     try:
-        server = HTTPServer(('localhost', 50209), GetHandler)
+        server = HTTPServer(('localhost', 9487), GetHandler)
         print 'Starting HTTP Server!'
         print 'Use <Ctrl-C> to exit the extension\n'
         print 'Please start Scratch or Snap!'
